@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name=charset content="utf-8"> 
+    <title>Success</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+	#wrapper {
+		margin: 0px auto;
+		width: 800px;
+	}
+	.jumbotron {
+		background-color: #006ce099;
+    	color: black;
+    	padding: 25px;
+	}
+	a.btn.btn-danger, a.btn.btn-secondary {
+		margin-top: 15px;
+	}
+	a {
+		width: 100px;
+		margin-left: 15px;
+		margin-bottom: 15px;
+	}
+	h1 {
+		margin-left: 25px;
+	}
+	.table {
+		background-color: whitesmoke;
+		width: 715px;
+   		margin: 5px 17px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="jumbotron">
+			<h1 class="display-4">Welcome {{ user.username }}</h1>
+			<hr class="my-4">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">First Name</th>
+						<th scope="col">Last Name</th>
+						<th scope="col">Username</th>
+						<th scope="col">Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ users.first_name }}</td>
+						<td>{{ users.last_name }}</td>
+						<td>{{ users.username }}</td>
+						<td>{{ users.email }}</td>
+					</tr>	
+				</tbody>
+			</table>				
+			<a href="{% url 'users:logout' %}" class="btn btn-danger">Logout</a>
+		</div>
+	</div>
+</body>
+</html>	

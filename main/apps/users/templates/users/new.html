@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name=charset content="utf-8"> 
+    <title>Login & Registration</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+	#wrapper {
+		margin: 0px auto;
+		width: 960px;
+	}
+	.jumbotron {
+		background-color: #006ce099;
+    	color: black;
+    	padding: 25px;
+	}
+	h1, p {
+		display: inline;
+	}
+	p.lead {
+		margin-left: 65px;
+		font-size: 26px;
+	}
+	h1 {
+		margin-left: 25px;
+	}
+	h3 {
+		margin-bottom: 15px;
+	}
+	ul {
+		list-style: none;
+	    text-align: center;
+	    color: crimson;
+	    font-size: 18px;
+	    font-weight: 500;
+	}
+	button.btn.btn-dark {
+		margin-top: 15px;
+	}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="jumbotron">
+			<h1 class="display-4">Welcome!</h1>
+			<p class="lead">Login or register to continue...</p>
+			<hr class="my-4">
+			{% if messages %}
+				<ul class="messages">
+				{% for message in messages %}
+					<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				{% endfor %}	
+				</ul>
+			{% endif %}	
+			<h3><em>&#x270E; Register</em></h3>
+				<div class="container">
+					<form action="/create/" method="post">
+					{% csrf_token %}
+						<div class="row">
+							<div class="col">
+								<P>First Name:<input type="text" class="form-control" name="first_name"></P>
+							</div>
+							<div class="col">	
+								<p>Last Name:<input type="text" class="form-control" name="last_name"></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">	
+								<p>Username:<input type="text" class="form-control" name="username"></p>
+							</div>
+							<div class="col">	
+								<p>Email:<input type="text" class="form-control" name="email"></p>
+							</div>
+							<div class="col">	
+								<p>Password:<input type="text" class="form-control" name="password"></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">		
+								<button type="submit" class="btn btn-dark">Register</button>
+							</div>
+						</div>		
+					</form>
+				</div>	
+				<hr class="my-4">
+				<h3><em>&#x27A5; Login</em></h3>
+				<form action="/login/" method="post">
+				{% csrf_token %}
+					<div class="row">	
+						<div class="col">
+							<p>Username:<input type="text" class="form-control" name="username"></p>
+						</div>		
+						<div class="col">
+							<p>Password:<input type="password" class="form-control" name="password"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<button type="submit" class="btn btn-dark">Login</button>
+						</div>
+					</div>		
+				</div>	
+			</form>	
+		</div>
+	</div>
+</body>
+</html>	
